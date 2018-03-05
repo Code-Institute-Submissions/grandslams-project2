@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Dashboard Project Two</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+        <script type="text/javascript" src="/static/js/graph.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <style>
+            h2{
+                text-align: center;
+            }
+            h4{
+                text-align: center;
+            }
+            
+            .statistics{
+                border: 1px solid;
+                /*background-color: #338833;*/
+                height: 374px;
+            }
+        </style>
+        
+       
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Tennis Grandslams</a>
+              </div>
+            </div>
+        </nav>
+        
+        
+        
+        
+        <main>
+            
+            
+            <div class="container">
+                <div class="row">
+                    <div  class="col-sm-4">
+                        <h4>Tournament</h4>
+                        <div id="tournament"></div>
+                    </div>
+                    
+                    
+                     <div class="col-sm-4 statistics">
+                        <h2>Statistics</h2>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h4>Sets Won</h4>
+                                <div id="sets_won"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4>Sets Lost</h4>
+                                <div id="sets_loss"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h4>Games Won</h4>
+                                <div id="games_won"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4>Games Lost</h4>
+                                <div id="games_lost"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h4>Average World Ranking</h4>
+                            <div class="col-sm-6">
+                                <h4>Winner</h4>
+                                <div id="average_winner"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <h4>Loser</h4>
+                                <div id="average_loser"></div>
+                            </div>
+                        </div>
+                    </div>  
+                    
+                    <div class="col-sm-4">
+                        <h4>Player</h4>
+                        <div id="test"></div>
+                        <h4>Year</h4>
+                        <div id="test1111"></div>
+                    </div>
+
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h4>Surface</h4>
+                        <div id="surface"></div>
+                    </div>
+                   
+                   
+                    
+                    
+                    <div class="col-sm-8">
+                        <h4>Grandslam Wins</h4>
+                        <div id="number_of_wins"></div>
+                </div>
+                </div>
+            </div>
+        
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Grandslam Wins by Year</h4>
+                        <div id="wins_by_year"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4>Grandslam Losses by Year</h4>
+                        <div id="losses_by_year"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h4>Test</h4>
+            <div id="test1"></div>
+            <h4>Test</h4>
+            <div id="test15"></div>
+           
+        </main>
+    </body>
+</html>
