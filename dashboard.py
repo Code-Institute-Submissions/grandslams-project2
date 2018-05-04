@@ -11,10 +11,7 @@ MONGO_DB_NAME = os.environ.get('MONGO_DB_NAME')
 MONGO_COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME')
 
 
-FIELDS = {'Tournament': True, 'Date': True, 'Year': True, 'Series': True, 'Surface': True,
-    'Round': True, 'Winner': True, 'Loser': True, 'WRank': True, 'LRank': True, 'Wsets': True, 'Lsets': True,
-    'W1': True, 'W2': True, 'W3': True, 'W4': True, 'W5': True,
-    'L1': True, 'L2': True, 'L3': True, 'L4': True, 'L5': True, '_id': False}
+FIELDS = {'_id': False}
 
 @app.route("/")
 def get_home_page():

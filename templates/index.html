@@ -5,66 +5,185 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Dashboard Project Two</title>
+        
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
-        <script type="text/javascript" src="/static/js/graph.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="static/js/graph.js"></script>
+        <script type="text/javascript" src="static/js/script.js"></script>
+        
+        
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        
+        
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <style>
-            h2{
-                text-align: center;
-            }
-            h4{
-                text-align: center;
-            }
-            
-            .statistics{
-                border: 1px solid;
-                /*background-color: #338833;*/
-                height: 374px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
         
-       
     </head>
     <body>
         
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="#">Tennis Grandslams</a>
+                <a class="navbar-brand" href="/">Tennis Grandslam Finals</a>
               </div>
             </div>
         </nav>
         
-        
-        
-        
         <main>
+            <button class="btn btn-sm"><a href="javascript:dc.filterAll(); dc.renderAll();">Reset</a></button>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-offset-1 col-sm-2">
+                        <div class="trophy wim">
+                            <a href="#"><img class="img-responsive" src="/static/images/wimbledon.jpg" height="320" width="320" alt="wimbledon"></a>
+                        </div>
+                        <div class="trophy aus">
+                            <a href="#"><img class="img-responsive" src="/static/images/australian.jpg" height="320" width="320" alt="australian"></a>
+                        </div>
+                    </div>                   
+                    
+                    <div class="grandslams col-sm-6">
+                        <h4>Grandslams</h4>
+                        <p>The Grand Slam tournaments, also called majors, are the four most important annual tennis events. They offer 
+                        the most ranking points, prize money, public and media attention, the greatest strength and size of field, and 
+                        greater number of "best of" sets for men. The Grand Slam itinerary consists of the Australian Open in mid January, 
+                        the French Open in May and June, Wimbledon in July, and the US Open in August and September. Each tournament is 
+                        played over a period of two weeks. The Australian and United States tournaments are played on hard courts, the 
+                        French on clay, and Wimbledon on grass. </p>
+                    </div>
+                    <div class="wimbledon col-sm-6">
+                        <h4>Wimbledon</h4>
+                        <p>The Championships, Wimbledon, commonly known simply as Wimbledon, is the oldest tennis tournament in the world, 
+                        and is widely regarded as the most prestigious. It has been held at the All England Club in Wimbledon, London, since 
+                        1877 and is played on outdoor grass courts. </p>
+                    </div>
+                    <div class="australian col-sm-6">
+                        <h4>The Australian Open</h4>
+                        <p>The Australian Open is a tennis tournament held annually over the last fortnight of January in Melbourne, Australia. 
+                        First held in 1905, the tournament is chronologically the first of the four Grand Slam tennis events of the year – the 
+                        other three being the French Open, Wimbledon and the US Open. It features men's and women's singles; men's, women's and 
+                        mixed doubles and junior's championships; as well as wheelchair, legends and exhibition events. </p>
+                    </div>
+                    <div class="french col-sm-6">
+                        <h4>The French Open</h4>
+                        <p>The French Open, also called Roland-Garros), is a major tennis tournament held over two weeks between late May and 
+                        early June at the Stade Roland-Garros in Paris, France. The venue is named after the French aviator Roland Garros. It is 
+                        the premier clay court tennis championship event in the world and the second of four annual Grand Slam tournaments, the 
+                        other three being the Australian Open, Wimbledon and the US Open. The French Open is currently the only Grand Slam event 
+                        held on clay, and it is the zenith of the spring clay court season. </p>
+                    </div>
+                    <div class="us col-sm-6">
+                        <h4>The US Open</h4>
+                        <p>The United States Open Tennis Championships is a hard court tennis tournament. The tournament is the modern version of 
+                        one of the oldest tennis championships in the world, the U.S. National Championship, for which men's singles was first 
+                        contested in 1881. Since 1987, the US Open has been chronologically the fourth and final tennis major comprising the Grand 
+                        Slam each year; the other three, in chronological order, are the Australian Open, the French Open and Wimbledon. </p>
+                    </div>
+                    
+                    <div class="col-sm-2">   
+                        <div class="trophy u_s">
+                            <a href="#"><img class="img-responsive" src="/static/images/us.jpg" height="320" width="320" alt="us"></a>
+                        </div>
+                        <div class="trophy fre">
+                            <a href="#"><img class="img-responsive" src="/static/images/french.jpg" height="320" width="320" alt="french"></a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
             
             
+<!-----------------Second----------------->            
+            <div class="container outer">
+                <div class="row inner2">
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <h2>Grandslam Wins</h2>
+                        <div id="number_of_wins"></div>
+                    </div>
+                </div>
+            </div>
+            
+          
+           
+            
+            
+        
+            
+<!-----------------Third----------------->          
+           
+            
+<!-----------------Fourth----------------->
+
             <div class="container">
                 <div class="row">
-                    <div  class="col-sm-4">
-                        <h4>Tournament</h4>
-                        <div id="tournament"></div>
+                    <h2>Average World Ranking</h2>
+                    
+                    <div class="col-sm-offset-1 col-sm-5">
+                        
+                        <div id="awr"></div>
+                    </div>
+                   
+                    <div class="col-sm-offset-1 col-sm-5">
+                        
+                        <div class="col-sm-2">
+                            <h4>Winner</h4>
+                            <div id="average_winner"></div>
+                        </div>
+                        <div class="col-sm-2">
+                            <h4>Loser</h4>
+                            <div id="average_loser"></div>
+
+                        </div>
+                        <!--<h4>Player</h4>-->
+                        <!--<div class="col-sm-offset-2" id="player"></div>-->
                     </div>
                     
                     
-                     <div class="col-sm-4 statistics">
-                        <h2>Statistics</h2>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h4>Sets Won</h4>
-                                <div id="sets_won"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <h4>Sets Lost</h4>
-                                <div id="sets_loss"></div>
-                            </div>
+                </div>
+            </div>
+ 
+<!-----------------Fifth----------------->
+             <div class="container outer">
+                <div class="row inner">
+                    
+                    <h2>Grandslam Surface and Tournament</h2>
+                    
+                    <div class="col-sm-offset-1 col-sm-5">
+                        <div id="row_chart"></div>
+                    </div>
+                        
+                    <div class="col-sm-offset-1 col-sm-5">
+                        <div id="tournament"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+<!-----------------Sixth----------------->
+            <div class="container">
+                <div class="row">
+                    <h2>Game and set win percentage</h2>
+                    
+                    <div class="col-sm-offset-2 col-sm-3">
+                        
+                        <div id="gamewinpercent"></div>
+                    </div>
+                   
+                    <div class="col-sm-2">
+                        <div class="col-sm-6">
+                            <h4>Sets Won</h4>
+                            <div id="sets_won"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>Sets Lost</h4>
+                            <div id="sets_loss"></div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
@@ -76,74 +195,95 @@
                                 <div id="games_lost"></div>
                             </div>
                         </div>
-                        <div class="row">
-                            <h4>Average World Ranking</h4>
-                            <div class="col-sm-6">
-                                <h4>Winner</h4>
-                                <div id="average_winner"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <h4>Loser</h4>
-                                <div id="average_loser"></div>
-                            </div>
-                        </div>
-                    </div>  
-                    
-                    <div class="col-sm-4">
-                        <h4>Player</h4>
-                        <div id="test"></div>
-                        <h4>Year</h4>
-                        <div id="test1111"></div>
                     </div>
+                    <div class="col-sm-3">
+                        <div id="setwinpercent"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+<!-----------------Sicth----------------->
+        
+            <!--<div class="container">-->
+            <!--    <div class="row">-->
+            <!--        <div class="col-sm-12">-->
+            <!--            <h4>Grandslam Wins by Year</h4>-->
+            <!--            <div id="wins_by_year"></div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+            
+<!-----------------Seventh----------------->            
+            
+            <!--<div class="container">-->
+            <!--    <div class="row">-->
+            <!--        <div class="col-sm-12">-->
+            <!--            <h4>Grandslam Losses by Year</h4>-->
+            <!--            <div id="losses_by_year"></div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+            
+<!-----------------Eight----------------->
+            <!--<div class="container">-->
+            <!--    <div class="row">-->
+                    
+            <!--        <div class="col-sm-4">-->
+            <!--            <h4>Test</h4>-->
+            <!--            <div id="test1"></div>-->
+            <!--        </div>-->
+                    
+            <!--        <div class="col-sm-8">-->
+            <!--            <h4>Rankings</h4>-->
+            <!--            <div id="rankings"></div>-->
+            <!--        </div>-->
+
+            <!--    </div>-->
+            <!--</div>-->
+            
+<!-----------------Ninth----------------->            
+            
+            <div class="container">
+                <div class="row ">
+                    
+                    <div class="col-sm-5 inner3">
+                        <h4>Victory by Year</h4>
+                        <div id="scatter"></div>
+                    </div>
+                    <div class="col-sm-4 bigthree">
+                        <a href="#"><img class="img-responsive rodger" src="/static/images/Rodger.jpg"  alt="Rodger"></a>
+                        <a href="#"><img class="img-responsive rafa" src="/static/images/Rafa.jpg"  alt="Rafa"></a>
+                        <a href="#"><img class="img-responsive novak" src="/static/images/Novak.jpg"  alt="Novak"></a>
+                    </div>
+                  
+                    <!--<div class="col-sm-4">-->
+                    <!--    <h4>Test</h4>-->
+                    <!--    <div id="chart-here"></div>-->
+                    <!--</div>-->
 
                 </div>
             </div>
-            
-            
-            
-            
-            
-            
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <h4>Surface</h4>
-                        <div id="surface"></div>
-                    </div>
-                   
-                   
-                    
-                    
-                    <div class="col-sm-8">
-                        <h4>Grandslam Wins</h4>
-                        <div id="number_of_wins"></div>
-                </div>
-                </div>
-            </div>
-        
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4>Grandslam Wins by Year</h4>
-                        <div id="wins_by_year"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4>Grandslam Losses by Year</h4>
-                        <div id="losses_by_year"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <h4>Test</h4>
-            <div id="test1"></div>
-            <h4>Test</h4>
-            <div id="test15"></div>
-           
+
+
+
         </main>
+        
+        
+        
+        <footer class="footer our-footer navbar-fixed-bottom">
+            <div class="container ">
+                <div class="row">
+                    <p>Test</p>
+                </div>
+            </div>
+        </footer>
+        
+        
+        
+        
     </body>
 </html>
+
+
