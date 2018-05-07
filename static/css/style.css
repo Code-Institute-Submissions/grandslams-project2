@@ -4,31 +4,80 @@ html {
 }
 
 body {
-    /*background-color: #000080; */
     background-color: #9999ff;
     color: white;
     margin-bottom: 60px;
     text-align: center;
 }
-/*h2{*/
-/*    text-align: center;*/
-/*}*/
-/*h4{*/
-/*    text-align: center;*/
-/*}*/
+.btn {
+    position: fixed;
+    right: 0;
+    top: 10%;
+    width: 6em;
+    margin-top: -2.5em;
+    background-color: #000080;
+    border: 2px white solid;
+    
+}
+.intro_button {
+    position: fixed;
+    right: 0;
+    top: 5%;
+    width: 6em;
+    margin-top: -2.5em;
+    background-color: #000080;
+    border: 2px white solid;
+}
+.tball {
+    padding-top: 10px;
+}
+.navbar {
+    border-bottom: 4px white solid;
+    color: white;
+}
+.navbar-inverse {
+    background-color: black;
+}
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+h4{
+    text-align: left;
+}
 
-
+a {
+   text-decoration: none;
+   color: white;
+}
+.setsandgames {
+    background-color: #000080;
+    border: 4px solid white;
+    text-align: left;
+    padding-bottom: 10px;
+}
+.setsandgames > * > div {
+    color: #9999ff;
+}
+.average {
+    background-color: #000080;
+    border: 4px solid white;
+    text-align: left;
+    padding-bottom: 10px;
+}
+.average > * > div {
+    color: #9999ff;
+}
 path {
     stroke: white;
 }
 .dc-chart .axis line, .dc-chart .axis path {
     stroke: white;
-    /*line-height: 1;*/
-    color: red;
 }
 
 text {
     stroke: white;
+    stroke-width: 0.7;
+    stroke-opacity: 1;
 }
 
 .statistics{
@@ -40,17 +89,8 @@ text {
 }
 
 #surface .dc-chart .selected circle, .dc-chart .selected path {
-    /*stroke-width: 1;*/
     stroke: #000080;
     opacity: 1;
-}
-
-.footer {
-    background-color: #000080;
-    bottom: 0;
-    position: absolute;
-    width: 100%
-    
 }
 
 
@@ -72,60 +112,39 @@ text {
 }
 
 .trophy {
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border: 4px solid black;
     /*padding: 2px;*/
-    
+    margin-bottom: 2px;
 }
 .highlighted {
     border: 5px solid;
     border-color: green;
 }
-.btn {
-    position: fixed;
-    right: 0;
-    top: 10%;
-    
-    width: 8em;
-    margin-top: -2.5em;
-    background-color: #000080;
-    border: 2px white;
-    
+
+#tournament {
+    margin-left: auto;
+    margin-right: auto;
+    /*text-align: center;*/
 }
-a {
-   text-decoration: none;
-   color: white;
-}
+
+
 .outer {
     margin-top: 20px;
-    border: 2px white;
 }
-.rodger {
-    border: 4px red solid;
-}
-.rafa {
-    border: 4px blue solid;
-}
-.novak {
-    border: 4px orange solid;
-}
+
 .inner {
-    
     background-attachment: fixed;
     background-image:url(../images/ball.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
- 
+    border: 4px solid white; 
 }
 
 .inner2 {
-    background-attachment: fixed;
-    /*background-image:url(../images/clay.jpeg);*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-color: #000080; 
+    border: 4px solid white; 
 }
 
 .inner3 {
@@ -135,11 +154,33 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
- 
+    border: 4px solid white; 
 }
 
-#tournament {
-    margin-left: auto;
-    margin-right: auto;
-    /*text-align: center;*/
+
+.introjs-tooltip .introjs-bottom-left-aligned {
+    background-color: #000080;
+}
+.introjs-tooltiptext {
+    background-color: #000080;
+}
+.introjs-tooltip .introjs-bottom-left-aligned > .introjs-tooltiptext {
+    background-color: #000080;
+}
+.rodger {
+    border: 4px red solid;
+    margin-bottom: 20px;
+}
+.rafa {
+    border: 4px blue solid;
+    margin-bottom: 20px;
+}
+.novak {
+    border: 4px orange solid;
+}
+.footer {
+    /*background-color: #000080;*/
+    bottom: 0;
+    position: absolute;
+    width: 100%
 }

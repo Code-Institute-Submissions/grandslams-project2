@@ -74,7 +74,7 @@ function show_percent_game_win(ndx) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(350).y(10).itemHeight(13).gap(5))
-        // .xAxisLabel("Gender")
+        .xAxisLabel("Games")
         .yAxis().tickFormat(d3.format(".0%"));
 }
 
@@ -132,7 +132,7 @@ function show_percent_set_win(ndx) {
         })
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        // .xAxisLabel("Gender")
+        .xAxisLabel("Sets")
         .legend(dc.legend().x(350).y(10).itemHeight(13).gap(5))
         .yAxis().tickFormat(d3.format(".0%"));
 }

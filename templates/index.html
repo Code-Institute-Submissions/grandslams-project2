@@ -13,7 +13,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="static/js/graph.js"></script>
         <script type="text/javascript" src="static/js/script.js"></script>
-        
+        <script type="text/javascript" src="static/js/intro.js"></script>
         
         <script src="https://code.jquery.com/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
@@ -23,19 +23,23 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
-        
+        <link rel="stylesheet" type="text/css" href="static/css/introjs.css">
     </head>
     <body>
         
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="/">Tennis Grandslam Finals</a>
+                  
+                 
+                  <a class="navbar-brand" href="/">Tennis Grandslam Final Winners 2003 - present</a>
+                  <img class="tball img-responsive" src="/static/images/tball.jpeg" height="50" width="50" alt="tennis ball">
               </div>
             </div>
         </nav>
         
         <main>
+            <button class="intro_button btn-sm" type="button" autofocus onclick="javascript:introJs().start();">Tour!</button>
             <button class="btn btn-sm"><a href="javascript:dc.filterAll(); dc.renderAll();">Reset</a></button>
             <div class="container text-center">
                 <div class="row">
@@ -49,7 +53,7 @@
                     </div>                   
                     
                     <div class="grandslams col-sm-6">
-                        <h4>Grandslams</h4>
+                        <h2>Grandslams</h2>
                         <p>The Grand Slam tournaments, also called majors, are the four most important annual tennis events. They offer 
                         the most ranking points, prize money, public and media attention, the greatest strength and size of field, and 
                         greater number of "best of" sets for men. The Grand Slam itinerary consists of the Australian Open in mid January, 
@@ -58,28 +62,28 @@
                         French on clay, and Wimbledon on grass. </p>
                     </div>
                     <div class="wimbledon col-sm-6">
-                        <h4>Wimbledon</h4>
+                        <h2>Wimbledon</h2>
                         <p>The Championships, Wimbledon, commonly known simply as Wimbledon, is the oldest tennis tournament in the world, 
                         and is widely regarded as the most prestigious. It has been held at the All England Club in Wimbledon, London, since 
                         1877 and is played on outdoor grass courts. </p>
                     </div>
                     <div class="australian col-sm-6">
-                        <h4>The Australian Open</h4>
+                        <h2>The Australian Open</h2>
                         <p>The Australian Open is a tennis tournament held annually over the last fortnight of January in Melbourne, Australia. 
                         First held in 1905, the tournament is chronologically the first of the four Grand Slam tennis events of the year – the 
                         other three being the French Open, Wimbledon and the US Open. It features men's and women's singles; men's, women's and 
                         mixed doubles and junior's championships; as well as wheelchair, legends and exhibition events. </p>
                     </div>
                     <div class="french col-sm-6">
-                        <h4>The French Open</h4>
-                        <p>The French Open, also called Roland-Garros), is a major tennis tournament held over two weeks between late May and 
+                        <h2>The French Open</h2>
+                        <p>The French Open, also called Roland-Garros, is a major tennis tournament held over two weeks between late May and 
                         early June at the Stade Roland-Garros in Paris, France. The venue is named after the French aviator Roland Garros. It is 
                         the premier clay court tennis championship event in the world and the second of four annual Grand Slam tournaments, the 
                         other three being the Australian Open, Wimbledon and the US Open. The French Open is currently the only Grand Slam event 
                         held on clay, and it is the zenith of the spring clay court season. </p>
                     </div>
                     <div class="us col-sm-6">
-                        <h4>The US Open</h4>
+                        <h2>The US Open</h2>
                         <p>The United States Open Tennis Championships is a hard court tennis tournament. The tournament is the modern version of 
                         one of the oldest tennis championships in the world, the U.S. National Championship, for which men's singles was first 
                         contested in 1881. Since 1987, the US Open has been chronologically the fourth and final tennis major comprising the Grand 
@@ -102,7 +106,7 @@
 <!-----------------Second----------------->            
             <div class="container outer">
                 <div class="row inner2">
-                    <div class="col-sm-offset-2 col-sm-8">
+                    <div class="col-sm-offset-2 col-sm-8" data-step="1" data-intro="Grandslam winners" style="font-weight: normal" data-position="right">
                         <h2>Grandslam Wins</h2>
                         <div id="number_of_wins"></div>
                     </div>
@@ -124,24 +128,23 @@
                 <div class="row">
                     <h2>Average World Ranking</h2>
                     
-                    <div class="col-sm-offset-1 col-sm-5">
+                    <div class="col-sm-offset-1 col-sm-5" data-step="2" data-intro="The average world ranking of the winning and losing grandslam finalists by tournament" style="font-weight: normal" data-position="right">
                         
                         <div id="awr"></div>
                     </div>
                    
-                    <div class="col-sm-offset-1 col-sm-5">
+                    <div class="col-sm-offset-1 col-sm-3 average" data-step="3" data-intro="The average world ranking of the winning and losing grandslam finalists" style="font-weight: normal" data-position="left">
                         
-                        <div class="col-sm-2">
-                            <h4>Winner</h4>
+                        <div class="col-sm-6">
+                            <h4>Winner: </h4>
                             <div id="average_winner"></div>
                         </div>
-                        <div class="col-sm-2">
-                            <h4>Loser</h4>
+                        
+                        <div class="col-sm-6">
+                            <h4>Loser: </h4>
                             <div id="average_loser"></div>
-
                         </div>
-                        <!--<h4>Player</h4>-->
-                        <!--<div class="col-sm-offset-2" id="player"></div>-->
+                        
                     </div>
                     
                     
@@ -154,11 +157,11 @@
                     
                     <h2>Grandslam Surface and Tournament</h2>
                     
-                    <div class="col-sm-offset-1 col-sm-5">
+                    <div class="col-sm-offset-1 col-sm-5" data-step="4" data-intro="Grandslam by surface" style="font-weight: normal" data-position="right">
                         <div id="row_chart"></div>
                     </div>
                         
-                    <div class="col-sm-offset-1 col-sm-5">
+                    <div class="col-sm-offset-1 col-sm-5" data-step="5" data-intro="Grandslam by tournament" style="font-weight: normal" data-position="left">
                         <div id="tournament"></div>
                     </div>
                     
@@ -171,97 +174,70 @@
                 <div class="row">
                     <h2>Game and set win percentage</h2>
                     
-                    <div class="col-sm-offset-2 col-sm-3">
-                        
+                    <div class="col-sm-offset-2 col-sm-3" data-step="6" data-intro="Percentage of games won and lost" style="font-weight: normal" data-position="right">
+                        <h4>Games percentage won</h4>
                         <div id="gamewinpercent"></div>
                     </div>
+                    
+                    <div class="col-sm-3" data-step="7" data-intro="Percentage of sets won and lost" style="font-weight: normal" data-position="right">
+                        <h4>Sets percentage won</h4>
+                        <div id="setwinpercent"></div>
+                    </div>
                    
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 setsandgames" data-step="8" data-intro="Total number of games and sets won and lost" style="font-weight: normal" data-position="left">
                         <div class="col-sm-6">
-                            <h4>Sets Won</h4>
+                            <h4>Sets Won:</h4>
                             <div id="sets_won"></div>
                         </div>
                         <div class="col-sm-6">
-                            <h4>Sets Lost</h4>
+                            <h4>Sets Lost:</h4>
                             <div id="sets_loss"></div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h4>Games Won</h4>
-                                <div id="games_won"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <h4>Games Lost</h4>
-                                <div id="games_lost"></div>
-                            </div>
+                        
+                        <div class="col-sm-6">
+                            <h4>Games Won:</h4>
+                            <div id="games_won"></div>
                         </div>
+                        <div class="col-sm-6">
+                            <h4>Games Lost:</h4>
+                            <div id="games_lost"></div>
+                        </div>
+                        
                     </div>
-                    <div class="col-sm-3">
-                        <div id="setwinpercent"></div>
-                    </div>
+                    
                 </div>
             </div>
 
 
 
-<!-----------------Sicth----------------->
-        
-            <!--<div class="container">-->
-            <!--    <div class="row">-->
-            <!--        <div class="col-sm-12">-->
-            <!--            <h4>Grandslam Wins by Year</h4>-->
-            <!--            <div id="wins_by_year"></div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--</div>-->
-            
-<!-----------------Seventh----------------->            
-            
-            <!--<div class="container">-->
-            <!--    <div class="row">-->
-            <!--        <div class="col-sm-12">-->
-            <!--            <h4>Grandslam Losses by Year</h4>-->
-            <!--            <div id="losses_by_year"></div>-->
-            <!--        </div>-->
-            <!--    </div>-->
-            <!--</div>-->
-            
-<!-----------------Eight----------------->
-            <!--<div class="container">-->
-            <!--    <div class="row">-->
-                    
-            <!--        <div class="col-sm-4">-->
-            <!--            <h4>Test</h4>-->
-            <!--            <div id="test1"></div>-->
-            <!--        </div>-->
-                    
-            <!--        <div class="col-sm-8">-->
-            <!--            <h4>Rankings</h4>-->
-            <!--            <div id="rankings"></div>-->
-            <!--        </div>-->
 
-            <!--    </div>-->
-            <!--</div>-->
-            
 <!-----------------Ninth----------------->            
             
             <div class="container">
                 <div class="row ">
                     
-                    <div class="col-sm-5 inner3">
-                        <h4>Victory by Year</h4>
+                    <div class="col-sm-5 inner3" data-step="9" data-intro="Granslam winners by year" style="font-weight: normal" data-position="right">
+                        <h2>Victory by Year</h2>
                         <div id="scatter"></div>
                     </div>
                     <div class="col-sm-4 bigthree">
-                        <a href="#"><img class="img-responsive rodger" src="/static/images/Rodger.jpg"  alt="Rodger"></a>
-                        <a href="#"><img class="img-responsive rafa" src="/static/images/Rafa.jpg"  alt="Rafa"></a>
-                        <a href="#"><img class="img-responsive novak" src="/static/images/Novak.jpg"  alt="Novak"></a>
+                        <img class="img-responsive rodger" src="/static/images/Rodger.jpg"  alt="Rodger">
+                        <img class="img-responsive rafa" src="/static/images/Rafa.jpg"  alt="Rafa">
+                        <img class="img-responsive novak" src="/static/images/Novak.jpg"  alt="Novak">
                     </div>
                   
-                    <!--<div class="col-sm-4">-->
-                    <!--    <h4>Test</h4>-->
-                    <!--    <div id="chart-here"></div>-->
-                    <!--</div>-->
+                    <div class="col-sm-3">
+                        <h2>The Big Four</h2>
+                        <p>Since the year 2003 men's tennis has been dominated by Rodger Federer, Rafael Nadal, Andy Murray
+                        and Novak D]okovic. Out of the available 61 grandslams 51 were won by the big four. Stan Wawrinka has three wins to his name
+                        the same number as Murray, however he has only one final loss against Murrays 8.</p>
+                        <p>Remarkably the calender grandslam evaded each man, with Federer being short of the French open on three occasions. Novak 
+                        held all grandslams at the same time winning Wimbledon and the US open in 2015 and completing the set in 2016 with the 
+                        Australian open and Roland Garros.</p>
+                        <p>All four men have seen their 30th birthdays come and pass but continue to play fantastic tennis in what has been 
+                        dubbed 'the golden era' for mens tennis. The bar has been trully raised and it has been a joy to witness.</p>
+                        
+                    </div>
 
                 </div>
             </div>
@@ -274,8 +250,8 @@
         
         <footer class="footer our-footer navbar-fixed-bottom">
             <div class="container ">
-                <div class="row">
-                    <p>Test</p>
+                <div class="row end">
+                    <p>Colm Hughes</p>
                 </div>
             </div>
         </footer>
