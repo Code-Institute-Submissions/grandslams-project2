@@ -18,7 +18,6 @@
         <script src="https://code.jquery.com/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
         
-        
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,8 +29,6 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
-                  
-                 
                   <a class="navbar-brand" href="/">Tennis Grandslam Final Winners 2003 - present</a>
                   <img class="tball img-responsive" src="/static/images/tball.jpeg" height="50" width="50" alt="tennis ball">
               </div>
@@ -41,6 +38,7 @@
         <main>
             <button class="intro_button btn-sm" type="button" autofocus onclick="javascript:introJs().start();">Tour!</button>
             <button class="btn btn-sm"><a href="javascript:dc.filterAll(); dc.renderAll();">Reset</a></button>
+            
             <div class="container text-center">
                 <div class="row">
                     <div class="col-sm-offset-1 col-sm-2">
@@ -103,7 +101,8 @@
             </div>
             
             
-<!-----------------Second----------------->            
+<!-----------------Second----------------->     
+
             <div class="container outer">
                 <div class="row inner2">
                     <div class="col-sm-offset-2 col-sm-8" data-step="1" data-intro="Grandslam winners" style="font-weight: normal" data-position="right">
@@ -113,28 +112,18 @@
                 </div>
             </div>
             
-          
-           
-            
-            
-        
-            
 <!-----------------Third----------------->          
-           
-            
-<!-----------------Fourth----------------->
 
             <div class="container">
                 <div class="row">
+                    
                     <h2>Average World Ranking</h2>
                     
                     <div class="col-sm-offset-1 col-sm-5" data-step="2" data-intro="The average world ranking of the winning and losing grandslam finalists by tournament" style="font-weight: normal" data-position="right">
-                        
                         <div id="awr"></div>
                     </div>
-                   
+                    
                     <div class="col-sm-offset-1 col-sm-3 average" data-step="3" data-intro="The average world ranking of the winning and losing grandslam finalists" style="font-weight: normal" data-position="left">
-                        
                         <div class="col-sm-6">
                             <h4>Winner: </h4>
                             <div id="average_winner"></div>
@@ -144,14 +133,11 @@
                             <h4>Loser: </h4>
                             <div id="average_loser"></div>
                         </div>
-                        
                     </div>
-                    
-                    
                 </div>
             </div>
- 
-<!-----------------Fifth----------------->
+<!-----------------Fourth----------------->
+
              <div class="container outer">
                 <div class="row inner">
                     
@@ -168,10 +154,11 @@
                 </div>
             </div>
             
+<!-----------------Fifth----------------->
 
-<!-----------------Sixth----------------->
             <div class="container">
                 <div class="row">
+                    
                     <h2>Game and set win percentage</h2>
                     
                     <div class="col-sm-offset-2 col-sm-3" data-step="6" data-intro="Percentage of games won and lost" style="font-weight: normal" data-position="right">
@@ -202,16 +189,12 @@
                             <h4>Games Lost:</h4>
                             <div id="games_lost"></div>
                         </div>
-                        
                     </div>
                     
                 </div>
             </div>
 
-
-
-
-<!-----------------Ninth----------------->            
+<!-----------------Sixth----------------->            
             
             <div class="container">
                 <div class="row ">
@@ -238,26 +221,23 @@
                         dubbed 'the golden era' for mens tennis. The bar has been trully raised and it has been a joy to witness.</p>
                         
                     </div>
-
                 </div>
             </div>
 
 
 
         </main>
-        
-        
+
         
         <footer class="footer our-footer navbar-fixed-bottom">
             <div class="container ">
                 <div class="row end">
-                    <p>Colm Hughes</p>
+                    <p>Colm Hughes
+                        <a href="https://github.com/ColmHughes" target="_blank"><i class="fa fa-github"></i></a> 
+                    </p>
                 </div>
             </div>
         </footer>
-        
-        
-        
         
     </body>
 </html>

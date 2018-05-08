@@ -7,8 +7,6 @@ queue()
 function makeGraph(error, grandslamData){
     let ndx = crossfilter(grandslamData)
     
-    
-    
     let parseDate = d3.time.format("%d/%m/%Y").parse;
     grandslamData.forEach(function (d) {
         d.WRank = parseInt((d.WRank));
@@ -19,18 +17,12 @@ function makeGraph(error, grandslamData){
         d.total_games_lost = d.L1 + d.L2 + d.L3 + d.L4 + d.L5;
         d.gameswon = parseInt((d.total_games_won));
         d.gameslost = parseInt((d.total_games_lost));
-        // d.year = parseInt(d.year);
         d.Date = parseDate(d.Date);
         d.Year = d.Date.getFullYear();
-        // d.Date = Date.parse(d.Date);
     })
-    
-    
-    
     
     show_player(ndx);
     show_tournament(ndx);
-    // show_test1(ndx);
     show_sets_won_loss(ndx, "Wsets", "#sets_won");
     show_sets_won_loss(ndx, "Lsets", "#sets_loss");
     show_games_won_loss(ndx, "total_games_won", "#games_won");
@@ -39,10 +31,7 @@ function makeGraph(error, grandslamData){
     show_average_loser(ndx);
     show_surface(ndx);
     show_winner_chart(ndx);
-    // show_final_wins(ndx);
-    // show_final_losses(ndx);
     scatter(ndx);
-    // show_rankings(ndx);
     show_row_chart(ndx);
     show_average_winner_barchart(ndx);
     show_percent_set_win(ndx);
@@ -51,15 +40,14 @@ function makeGraph(error, grandslamData){
 dc.renderAll();
     
 }
+
 function show_percent_game_win(ndx) {
     
     let name_dim = ndx.dimension(dc.pluck('Series'));
       
- 
     let win_percent = get_percent_game_win_loss(ndx, "gameswon");
     let loss_percent = get_percent_game_win_loss(ndx, "gameslost");
    
-        
     dc.barChart("#gamewinpercent")
         .width(200)
         .height(300)
@@ -79,7 +67,9 @@ function show_percent_game_win(ndx) {
 }
 
 function get_percent_game_win_loss(ndx, rank) {
+    
     let name_dim = ndx.dimension(dc.pluck('Series'));
+    
     return name_dim.group().reduce(
         function (p, v) {
             if (rank == "gameswon"){
@@ -110,15 +100,14 @@ function get_percent_game_win_loss(ndx, rank) {
             return { total: 0, win: 0, percent: 0 };
         });
 }
+
 function show_percent_set_win(ndx) {
     
     let name_dim = ndx.dimension(dc.pluck('Series'));
       
- 
     let win_percent = get_percent_win_loss(ndx, "wsets");
     let loss_percent = get_percent_win_loss(ndx, "lsets");
    
-        
     dc.barChart("#setwinpercent")
         .width(200)
         .height(300)
@@ -138,7 +127,9 @@ function show_percent_set_win(ndx) {
 }
 
 function get_percent_win_loss(ndx, rank) {
+    
     let name_dim = ndx.dimension(dc.pluck('Series'));
+    
     return name_dim.group().reduce(
         function (p, v) {
             if (rank == "wsets"){
@@ -192,7 +183,6 @@ function show_average_winner_barchart(ndx) {
     let average_winner = get_average_rank_by_win_loss(ndx, "WRank");
     let average_loser = get_average_rank_by_win_loss(ndx, "LRank");
     
-    
     let chart = dc.barChart("#awr");
     chart
         .width(400)
@@ -213,7 +203,9 @@ function show_average_winner_barchart(ndx) {
 }
 
 function get_average_rank_by_win_loss(ndx, rank) {
+    
     let name_dim = ndx.dimension(dc.pluck('Tournament'))
+    
     return name_dim.group().reduce(
         function (p, v) {
             p.count ++;
@@ -256,9 +248,7 @@ function scatter(ndx){
     let max_date = date_dim.top(1)[0].Year;     
 
     let tournament_dim = ndx.dimension(function(d) {
-        
         return [d.Tournament, d.Year, d.Winner];
-        
     })
 
     let tournament_group = tournament_dim.group();
@@ -268,19 +258,6 @@ function scatter(ndx){
             "Gaudio G.", "Ferrero J.C", "Del Potro J.M.", "Cilic M.", "Agassi A."])
         .range(["red", "orange", "blue", "green", "green", "green", "green", "green", "green", "green", "green", "green"]);
 
-
-    let y_axis = d3.scale.ordinal()
-        .domain(['Australian Open', 'French Open', 'Wimbledon', 'US Open'])
-        .range([380, 380 * 2/3, 380 * 1/3, 0]);
-        
-    console.log(y_axis.domain())
-    console.log(y_axis.range())
-
-    // let subChart = function(c) {
-    //     return dc.scatterPlot(c)
-    //         .symbolSize(8)
-    //         .highlightSize(10)
-    // }
     let scatterPlot = dc.scatterPlot("#scatter")
     scatterPlot
         .width(500)
@@ -289,13 +266,9 @@ function scatter(ndx){
         .x(d3.scale.ordinal().domain(['Australian Open', 'French Open', 'Wimbledon', 'US Open']).range(['1', '2', '3', '4']))
         .xUnits(dc.units.ordinal)
         .y(d3.time.scale().domain([max_date + 1, min_date]))
-        // .y(d3.scale.ordinal().domain(['Australian Open', 'French Open', 'Wimbledon', 'US Open']).range(['1', '2', '3', '4']))
-        // .y(y_axis)
-        // .yUnits(dc.units.ordinal)
         .brushOn(true)
         .symbolSize(10)
         .clipPadding(10)
-        // .yAxisLabel("Year")
         .colorAccessor(function (d) {
             return d.key[2]
         })
@@ -308,13 +281,14 @@ function scatter(ndx){
         .yAxis().ticks(14);
     scatterPlot
         .yAxis().tickFormat(d3.format("d"))   
-             
 }
 
 function show_row_chart(ndx){
 
     let dim = ndx.dimension(dc.pluck('Surface'));
-    var group = dim.group().reduceCount();
+    
+    let group = dim.group().reduceCount();
+    
     let chart = dc.rowChart("#row_chart");
     chart
         .width(400)
@@ -322,13 +296,12 @@ function show_row_chart(ndx){
         .dimension(dim)
         .group(group)
         .xAxis().ticks(4);
-
 }
-
 
 function show_tournament(ndx) {
     
     let series = ndx.dimension(dc.pluck('Tournament'));
+    
     let count_by_series = series.group().reduceCount();
     
     dc.pieChart("#tournament")
@@ -340,9 +313,10 @@ function show_tournament(ndx) {
         .transitionDuration(500);
 }
 
-
 function show_select_discipline(ndx) {
+    
     let discipline_dim = ndx.dimension(dc.pluck('discipline'))
+    
     let discipline_group = discipline_dim.group()
     
     dc.selectMenu("#select-discipline")
@@ -353,113 +327,37 @@ function show_select_discipline(ndx) {
 function show_player(ndx) {
     
     let discipline_dim = ndx.dimension(dc.pluck('Tournament'))
-    let discipline_group = discipline_dim.group()
     
+    let discipline_group = discipline_dim.group()
     
     dc.selectMenu("#player")
         .dimension(discipline_dim)
         .group(discipline_group)
 }
 
-function test(ndx, name) {
-    let gender_dim = ndx.dimension(dc.pluck('Series'))
-    return gender_dim.group().reduce(
-            function (p, v) {
-               
-                    p.total_found += 1;
-                    if (v.Tournament == name) {
-                        p.are_prof += 1;
-                    }
-                    p.percent = (p.are_prof / p.total_found);  
-                
-                return p;
-            },
-            function (p, v) {
-                
-                    p.total_found -= 1;
-                    if(p.total_found > 0) {                
-                        if (v.Tournament == name) {
-                            p.are_prof -= 1;
-                        }
-                        p.percent = (p.are_prof / p.total_found);
-                    } else {
-                        p.are_prof = 0;
-                        p.percent = 0;
-                    }
-                
-                return p;
-            },
-            
-            function () {
-                return { total_found: 0, are_prof: 0, percent: 0 };
-                
-            });
-  
-}
-
-
-function show_test1(ndx) {
-     let gender_dim = ndx.dimension(dc.pluck('Tournament'))
-    
-     let australian = test(ndx, "Australian Open");    
-     let french = test(ndx, "French Open");
-     let british = test(ndx, "Wimbledon");
-     let us = test(ndx, "US Open");
-     
-     dc.barChart("#test1")
-        .width(300)
-        .height(300)
-        .margins({top: 10, right: 50, bottom: 30, left: 50})
-        .dimension(gender_dim)
-        .group(australian)
-        .stack(french)
-        .stack(british)
-        .stack(us)
-        .transitionDuration(500)
-        .valueAccessor( function(d) {
-            return d.value.percent;
-        })
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .xAxisLabel("Tournament")
-        .yAxis().ticks(4);
-        
-    
-}
-
-
-
-
-
-
-
-
 function show_sets_won_loss(ndx, win_loss, element) {
     
     let winnerDim = ndx.dimension(dc.pluck("Round"));
+    
     let winnerGroup = winnerDim.group().reduceSum(dc.pluck(win_loss));
     
     dc.numberDisplay(element)
         .formatNumber(d3.format())
         .dimension(winnerDim)
         .group(winnerGroup);
-        
-    
 }
-
 
 function show_games_won_loss(ndx, won_loss, element) {
     
     let winnerDim = ndx.dimension(dc.pluck("Series"));
-    let games_won_lost = winnerDim.group().reduceSum(dc.pluck(won_loss))
+    
+    let games_won_lost = winnerDim.group().reduceSum(dc.pluck(won_loss));
    
     dc.numberDisplay(element)
         .formatNumber(d3.format())
         .dimension(winnerDim)
         .group(games_won_lost);
 }
-
-
 
 function show_average_winner(ndx) {
     
@@ -497,8 +395,6 @@ function show_average_winner(ndx) {
         });
 }
 
-
-
 function show_average_loser(ndx) {
     
     let name_dim = ndx.dimension(dc.pluck('Round'));
@@ -535,16 +431,10 @@ function show_average_loser(ndx) {
         });
 }
 
-
-
-
-
-
-
-
 function show_surface(ndx) {
     
-    let surface = ndx.dimension(dc.pluck('Surface'))
+    let surface = ndx.dimension(dc.pluck('Surface'));
+    
     let count_matches_by_surface = surface.group().reduceCount();
     
     dc.pieChart("#surface")
@@ -555,12 +445,13 @@ function show_surface(ndx) {
         .transitionDuration(500);
 }
 
-
-
 function show_winner_chart(ndx) {
-    var winnerDim = ndx.dimension(dc.pluck("Winner"));
-    var winnerGroup = winnerDim.group();
-    var roundDim = ndx.dimension(dc.pluck("Round"));
+    
+    let winnerDim = ndx.dimension(dc.pluck("Winner"));
+    
+    let winnerGroup = winnerDim.group();
+    
+    let roundDim = ndx.dimension(dc.pluck("Round"));
     roundDim.filter('The Final');
     function filter_not_zero(source_group) {
         return {
@@ -588,159 +479,4 @@ function show_winner_chart(ndx) {
 
 
 
-function show_final_wins(ndx) {
-    
-        let year = ndx.dimension(dc.pluck('Year'));
-       
-        let minDate = year.bottom(1)[0].Year;
-        let maxDate = year.top(1)[0].Year;
-    
-    
-    
-        function grandslamsByWinner(name) {
-            return year.group().reduceSum(function (d) {
-                if (name == "Federer R." || name == "Nadal R." || name == "Djokovic N.") {
-                    if (d.Winner == name ) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
-                } else if (d.Winner != "Federer R." && d.Winner != "Nadal R." && d.Winner != "Djokovic N." ) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            });
-        }
-    
-    
-        let federerWins = grandslamsByWinner("Federer R.")
-        let nadalWins = grandslamsByWinner("Nadal R.")
-        let djokovicWins = grandslamsByWinner("Djokovic N.")
-        let otherWins = grandslamsByWinner("other")
-        
-    
-        let compositeChart = dc.compositeChart('#wins_by_year');
-        compositeChart
-            .width(1000)
-            .height(200)
-            .dimension(year)
-            // .x(d3.time.scale().domain([minDate, maxDate]))
-            // .x(d3.scale.linear().domain([minDate,maxDate]))
-            .x(d3.time.scale().domain([minDate,maxDate]))
-            .yAxisLabel("Final Wins")
-            .legend(dc.legend().x(900).y(20).itemHeight(13).gap(5))
-            .renderHorizontalGridLines(true)
-            .compose([
-                dc.lineChart(compositeChart)
-                    .colors('green')
-                    .group(federerWins, 'Federer R.'),
-                dc.lineChart(compositeChart)
-                    .colors('blue')
-                    .group(nadalWins, 'Nadal R.'),
-                dc.lineChart(compositeChart)
-                    .colors('red')
-                    .group(djokovicWins, 'Djokovic N.'),
-                dc.lineChart(compositeChart)
-                    .colors('yellow')
-                    .group(otherWins, 'Other')
-            ])
-            .brushOn(false)
-            .render()
-            .yAxis().ticks(4);
-        compositeChart
-            .xAxis().tickFormat(d3.format("d"));
-}  
-
-function show_final_losses(ndx) {
-    
-        let year = ndx.dimension(dc.pluck('Year'));
-        
-        let minDate = year.bottom(1)[0].Year;
-        let maxDate = year.top(1)[0].Year;
-    
-        function grandslamsByLoser(name) {
-            return year.group().reduceSum(function (d) {
-                if (name == "Federer R." || name == "Nadal R." || name == "Djokovic N.") {
-                    if (d.Loser == name ) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
-                } else if (d.Loser != "Federer R." && d.Loser != "Nadal R." && d.Loser != "Djokovic N." ) {
-                    return 1;
-                } else {
-                    return 0;
-                }
-            });
-        }
-    
-    
-        let federerLosses = grandslamsByLoser("Federer R.")
-        let nadalLosses = grandslamsByLoser("Nadal R.")
-        let djokovicLosses = grandslamsByLoser("Djokovic N.")
-        let otherLosses = grandslamsByLoser("other")
-        
-    
-        let compositeChart = dc.compositeChart('#losses_by_year');
-        compositeChart
-            .width(1000)
-            .height(200)
-            .dimension(year)
-            .x(d3.time.scale().domain([minDate, maxDate]))
-            
-            .yAxisLabel("Final Losses")
-            .legend(dc.legend().x(900).y(20).itemHeight(13).gap(5))
-            .renderHorizontalGridLines(true)
-            .compose([
-                dc.lineChart(compositeChart)
-                    .colors('green')
-                    .group(federerLosses, 'Federer R.'),
-                dc.lineChart(compositeChart)
-                    .colors('blue')
-                    .group(nadalLosses, 'Nadal R.'),
-                dc.lineChart(compositeChart)
-                    .colors('red')
-                    .group(djokovicLosses, 'Djokovic N.'),
-                dc.lineChart(compositeChart)
-                    .colors('yellow')
-                    .group(otherLosses, 'Other')
-            ])
-            .brushOn(false)
-            .render()
-            .yAxis().ticks(4);
-        compositeChart
-            .xAxis().tickFormat(d3.format("d"));
-}  
-
-
-
-function show_rankings(ndx) {
-    
-    let dateDim = ndx.dimension(dc.pluck('Year'));
-    let win_rank = dateDim.group().reduceSum(function(d) {return d.WRank;});
-    let lose_rank = dateDim.group().reduceSum(function(d) {return d.LRank;});
-    
-    let minDate = dateDim.bottom(1)[0].Year;
-    let maxDate = dateDim.top(1)[0].Year;
-    
-    
-    let rankinglineChart = dc.lineChart("#rankings");
-    
-    rankinglineChart
-    	.width(800).height(300)
-    	.dimension(dateDim)
-    	.group(win_rank, "Winners Ranking")
-    	.stack(lose_rank, "Losers Ranking")
-    	.renderArea(true)
-    	.brushOn(false)
-    	.x(d3.time.scale().domain([minDate,maxDate]))
-    	.legend(dc.legend().x(450).y(10).itemHeight(13).gap(5))
-    // 	.y(d3.scale.linear())
-    	.yAxisLabel("Ranking");
-    rankinglineChart
-            .xAxis().tickFormat(d3.format("d"));
-    
-    
-}
   
