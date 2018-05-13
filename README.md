@@ -62,7 +62,7 @@ This dashboard was built to be viewed on a desktop/laptop or larger screens, I p
 It would be nice to combine jQuery and DC so when an image of a player or trophy is clicked, the graphs are filtered.
 
 ## Testing
-This application was tested across a range of browsers, I also carried out manually tests to make sure the averages and percentages were
+This application was tested across a range of browsers, I also carried out manual tests to make sure the averages and percentages were
 correct and also all filtered data was consistent.
 
 
