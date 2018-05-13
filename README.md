@@ -1,5 +1,4 @@
 # Men's Tennis Grandslam Finals 2003 - Jan 2018
-
 This is a Data Visualisation project built using Pythons Flask framework.
 It was built as one of three projects for my Code Institute bootcamp course. 
 
@@ -7,13 +6,11 @@ The project demonstates just how much the past fifteen years have been dominated
 Novak Djokovic and Rafael Nadal.
 
 ## Demo
-
 The deployed version of the web app is available on heroku: https://grandslams-project2.herokuapp.com/
 
 ## View locally
-
 The repository is available on github: https://github.com/ColmHughes/grandslams-project2. In order to run this app locally, all dependancies 
-listed in requirements.txt must be installed.
+listed in requirements.txt must be installed. The git repository can be cloned and then simply run the dashboard.py file.
 
 ## Built with 
 1. Flask 
@@ -57,9 +54,17 @@ D3 is a JavaScript library for visualizing data with HTML, SVG, and CSS.
 DC.js is a JavaScript library that works alongside D3 and Crossfilter to make interactive dashboards in JavaScript.
 
 
+## Wireframes
+The wireframes for this project can be viewed on github in the 'Wireframes' folder.
+
 ## Features to be implemented
 This dashboard was built to be viewed on a desktop/laptop or larger screens, I plan on making it more mobile - responsive.
 It would be nice to combine jQuery and DC so when an image of a player or trophy is clicked, the graphs are filtered.
 
 ## Testing
-This application was tested across a range of browsers
+This application was tested across a range of browsers, I also carried out manually tests to make sure the averages and percentages were
+correct and also all filtered data was consistent.
+
+
+
+
